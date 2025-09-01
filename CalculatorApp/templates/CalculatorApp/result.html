@@ -1,0 +1,19 @@
+{% extends "CalculatorApp/_base.html" %}
+
+{% block title %} Resultados {% endblock %}
+
+<div>
+    {% block content %}
+    <h1>Aqui se muestra el resultado</h1>
+    
+    {%if image %}
+        <div id="ImageContainer" class="ImageContainer">
+            <img src="data:image/png;base64, {{image}}" class="img-fluid" alt="ImagenGrafica">
+        </div>
+    {%else%}
+        <strong style="color: aqua;">Mi verga caon</strong>
+    {%endif%}
+    <br>
+    <a class="btn btn-primary" href="{% url 'index'%}">Volver</a>
+    {% endblock %}
+</div>

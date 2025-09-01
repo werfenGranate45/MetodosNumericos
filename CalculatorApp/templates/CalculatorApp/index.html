@@ -1,0 +1,27 @@
+{% extends "CalculatorApp/_base.html" %}
+
+{% block title %} Calculadora {% endblock %}
+
+{% block content %}
+<div class="input-group">
+  <form method="get" action="{% url  'resultado'  %}"> <!--El Accion apunta al nombre de la ruta-->
+    <!--Quitar el CRSF, por que es una peticion GET no es neceario y traera problemas de seguiridad caon-->
+    <div class="input-group mb-3">
+        {{form.degree_field}}
+    </div> 
+    {%if form.degree_field.errors %}
+        <div style="color: red;">
+          <strong>Verga</strong>
+        </div>
+    {%endif%}
+        
+    <div class="infoMensaje"> Elije algo para Calcular </div>
+
+    <div class="botonesContainer">
+      <button value ="sen" name = "operacion" id ="btnSen" class="btn btn-primary"  >Seno</button>
+      <button value ="cos" name = "operacion" id ="btnCos" class="btn btn-primary"  >Coseno</button>
+      <button value ="exp" name = "operacion" id ="btnExp" class="btn btn-primary" >Exponencial</button>
+    </div>
+  </form> <!--Todo la introduccion de numeros ira dentro de un Form ni modo no hay de otra-->
+</div>
+{% endblock %}
